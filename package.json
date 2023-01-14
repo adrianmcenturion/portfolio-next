@@ -9,9 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.20.5",
+    "@chakra-ui/icons": "^2.0.14",
+    "@chakra-ui/react": "^2.4.4",
+    "@chakra-ui/system": "^2.3.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@types/nodemailer": "^6.4.7",
+    "add": "^2.0.6",
+    "dotenv": "^16.0.3",
+    "firebase": "^9.15.0",
+    "framer-motion": "^6.5.1",
     "next": "13.0.0",
+    "nodemailer": "^6.8.0",
+    "pnpm": "^7.18.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-simple-typewriter": "^4.0.5",
+    "react-social-icons": "^5.15.0"
   },
   "devDependencies": {
     "@types/node": "18.11.7",
