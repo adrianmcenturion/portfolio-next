@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ChakraProvider, Container, extendTheme } from "@chakra-ui/react";
+import { Box, ChakraProvider, Container, extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header";
 
 const colors = {
@@ -15,10 +15,13 @@ const theme = extendTheme({ colors });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Container maxW={"container.lg"}>
-        <Header />
-        <Component {...pageProps} />
-      </Container>
+      <Box w='100%' h='100%' bgGradient='linear(to-r, #0f0c29,#302b63,#24243e)'>
+        <Container maxW={"container.lg"} h='100%' minH='100vh'>
+          <Header />
+          <Component {...pageProps} />
+        </Container>
+      </Box>
     </ChakraProvider>
   );
 }
+

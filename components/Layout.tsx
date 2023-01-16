@@ -1,13 +1,15 @@
-import { Flex } from "@chakra-ui/react"
+import { Flex, VStack } from "@chakra-ui/react"
 
 type Props = {
     children: React.ReactNode
 }
 const Layout = ({children}: Props) => {
   return (
-    <Flex as={'section'} flexDir={'column'} gap={6} alignItems='center' mt={"28"} textAlign='center' minH='100vh' maxH={'100vh'} mb={10} pb={10}>
+    <VStack maxH='100%'>
+      <VStack gap={10} mt='20' h='100%' alignItems={'center'} justifyContent='center'>
         {children}
-    </Flex>
+      </VStack>
+    </VStack>
   )
 }
 export default Layout

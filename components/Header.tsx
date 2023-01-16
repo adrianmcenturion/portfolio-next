@@ -1,6 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -12,12 +11,10 @@ import {
   ListItem,
   Spacer,
   Stack,
-  UnorderedList,
   useDisclosure,
-  LinkProps, useColorModeValue
+  LinkProps, Menu, MenuButton, MenuList, MenuItem, List
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import NavLink from "./NavLink";
 
@@ -53,6 +50,16 @@ const navLinks = [
   },
 ];
 
+const CVButton = () => (
+  <Menu isLazy >
+    <MenuButton _hover={{ color: '#4f46e5' }}>CV</MenuButton>
+    <MenuList bgGradient='linear(to-r, #302b63,#24243e)'>
+      <MenuItem bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>ENG</MenuItem>
+      <MenuItem bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>ESP</MenuItem>
+    </MenuList>
+  </Menu>
+)
+
 const Mobile = ({ isLargerThan820 }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -63,23 +70,24 @@ const Mobile = ({ isLargerThan820 }: Props) => {
         aria-label="hamburger icon"
         as={HamburgerIcon}
         onClick={onOpen}
+        bgGradient='linear(to-r, #302b63,#24243e)'
       />
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerContent>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} >
+        <DrawerContent bgGradient='linear(to-bl, #302b63,#24243e)'>
           <DrawerCloseButton />
           <DrawerBody>
-            <UnorderedList>
+            <List >
               {navLinks.map((navLink) => (
-                <ListItem key={navLink.title}>
+                <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>
                   <NavLink mr={4} to={navLink.path} activeProps={{fontWeight:'bold'}}>
                       {navLink.title}
                   </NavLink>
                 </ListItem>
               ))}
-              <ListItem>
-                <Button h={'fit-content'} minW={0} variant={"unstyled"}>CV</Button>
+              <ListItem py={2}>
+                <CVButton />
               </ListItem>
-            </UnorderedList>
+            </List>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -89,7 +97,6 @@ const Mobile = ({ isLargerThan820 }: Props) => {
 
 const Header = () => {
   const [isLargerThan820] = useMediaQuery("(max-width: 820px)");
-  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Stack as={"nav"} direction="row" alignItems={"center"} px={10} py={6}>
@@ -100,7 +107,7 @@ const Header = () => {
       </Stack>
       <Spacer />
       <Flex direction={"row"} display={isLargerThan820 ? "none" : "flex"}>
-        <UnorderedList
+        <List
           display={"flex"}
           w="100%"
           flexDirection={"row"}
@@ -111,15 +118,15 @@ const Header = () => {
         >
           {navLinks.map((navLink) => (
                 <ListItem key={navLink.title}>
-                  <NavLink mr={4} to={navLink.path} activeProps={{fontWeight:'semibold'}}>
+                  <NavLink mr={4} to={navLink.path} activeProps={{fontWeight:'semibold'}} >
                       {navLink.title}
                   </NavLink>
                 </ListItem>
               ))}
           <ListItem>
-            <Button h={'fit-content'} variant={"unstyled"}>CV</Button>
+          <CVButton />
           </ListItem>
-        </UnorderedList>
+        </List>
       </Flex>
       <Mobile isLargerThan820={isLargerThan820} />
     </Stack>

@@ -13,7 +13,7 @@ const Hero = (props: Props) => {
       "<ButILoveToCodeToo />",
     ],
     loop: true,
-    delaySpeed: 300,
+    delaySpeed: 100,
   });
 
   return (

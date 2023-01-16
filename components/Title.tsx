@@ -26,7 +26,7 @@ const Title = ({title}: Props) => {
         duration: 0.5
       }}
       >
-      <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"16px"}>
+      <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"16px"} textAlign='center' >
           {title}
       </Text>
       </ChakraBox>

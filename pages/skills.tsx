@@ -32,7 +32,7 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
         pb={10}
       >
         {props.technologies.length > 0 ? props.technologies.map((skill) => (
-          <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'}> 
+          <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'} > 
             <CardBody>
               <Image src={skill.img} alt={skill.name} boxSize={["20","24"]}/>
               {/* <ChakraNextImage src={skill.img} alt={skill.name} width={20} height={20} unoptimized/> */}

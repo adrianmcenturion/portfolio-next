@@ -49,31 +49,22 @@ const Projects: NextPage<ProjectsProps> = (props) => {
                 boxShadow={"none"}
               >
                 <Flex
+                  as={NavLink}
                   position={"absolute"}
+                  to={`/projects/${project.id}`}
                   w="100%"
                   h="100%"
                   bg="linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, #000000 100%)"
                   mixBlendMode={"normal"}
                   opacity={0.6}
                   transition={"ease-in-out"}
-                  _hover={{ opacity: 1 }}
-                >
-                  <NavLink
-                    position={"absolute"}
-                    bottom="25%"
-                    left="25%"
-                    right="25%"
-                    to={`/projects/${project.id}`}
-                    fontSize={"xl"}
-                    textTransform={"uppercase"}
-                    letterSpacing={"4px"}
-                    color="gray"
-                    _hover={{ color: "green" }}
-                  >
-                    Details
-                  </NavLink>
+                  alignItems='center'
+                  justifyContent={'center'}
+                  color='transparent'
+                  _hover={{ opacity: 1, cursor: "pointer", color: 'white', fontSize: '2xl', textTransform: 'uppercase', letterSpacing: "8px" }}
+                >Details
                 </Flex>
-                <CardHeader p={0} bg="black" w="100%">
+                <CardHeader p={0} bg="black" w="100%" textAlign={'center'}>
                   {project.title}
                 </CardHeader>
                 <CardBody p={0} bgImage={project.img}>

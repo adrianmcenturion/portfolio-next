@@ -52,7 +52,7 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
           Technologies
         </Text>
         <Divider />
-        <UnorderedList>
+        <UnorderedList pb={10}>
           {project.technologies ? project.technologies.map((technology) => (
             <ListItem key={technology}>{technology}</ListItem>
           )) : null}
