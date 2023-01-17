@@ -18,10 +18,7 @@ export type MessageProps = {
   description: string;
   img: [string]
   live: string;
-  repo: {
-    front: string;
-    back: string;
-  }
+  repos: [string]
   technologies: string
   title: string;
 };
@@ -31,13 +28,12 @@ type TouchedProps = {
     description: boolean;
     img: boolean
     live: boolean;
-    front: boolean;
-    back: boolean;
+    repos: boolean;
     technologies: boolean
     title: boolean;
 };
 const Admin = () => {
-  const initValues: MessageProps = { about: "", description: "", img: [''], live: '', repo: {front: '', back: ''}, technologies: '', title: '' };
+  const initValues: MessageProps = { about: "", description: "", img: [''], live: '', repos: [''], technologies: '', title: '' };
   const initState = { values: initValues };
   const [state, setState] = useState(initState);
   const [isLoading, setIsloading] = useState(false);
@@ -48,7 +44,7 @@ const Admin = () => {
     target,
   }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
-    let toArray = target.name === 'technologies' || target.name === 'img' ? target.value.split(',') : target.value
+    let toArray = target.name === 'technologies' || target.name === 'img' || target.name === 'repos' ? target.value.split(',') : target.value
       
       setState((prev) => ({
         ...prev,
@@ -86,7 +82,7 @@ const Admin = () => {
     <Layout>
       <Title title="Add project" />
       <form onSubmit={onSubmit}>
-        <VStack gap={6}>
+        <VStack gap={6} pb={20}>
           <FormControl isRequired isInvalid={touched.about && !values.about}>
             <FormLabel>About</FormLabel>
             <Input
@@ -110,7 +106,7 @@ const Admin = () => {
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
           <FormControl isRequired isInvalid={touched.title && !values.title}>
-            <FormLabel>title</FormLabel>
+            <FormLabel>Title</FormLabel>
             <Input
               type={"text"}
               name="title"
@@ -120,19 +116,8 @@ const Admin = () => {
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
-          <FormControl isRequired isInvalid={touched.img && !values.img}>
-            <FormLabel>img</FormLabel>
-            <Input
-              type={"text"}
-              name="img"
-              value={values.img}
-              onChange={handleChange}
-              onBlur={onBlur}
-            />
-            <FormErrorMessage>Required</FormErrorMessage>
-          </FormControl>
           <FormControl isRequired isInvalid={touched.live && !values.live}>
-            <FormLabel>live</FormLabel>
+            <FormLabel>Live</FormLabel>
             <Input
               type={"text"}
               name="live"
@@ -142,32 +127,31 @@ const Admin = () => {
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
-          <FormControl  isInvalid={touched.front && !values.repo.front}>
-            <FormLabel>front</FormLabel>
-            <Input
-              type={"text"}
-              name="front"
-              value={values.repo.front}
+          <FormControl isRequired isInvalid={touched.img && !values.img}>
+            <FormLabel>Images</FormLabel>
+            <Textarea
+              
+              name="img"
+              value={values.img}
               onChange={handleChange}
               onBlur={onBlur}
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
-          <FormControl  isInvalid={touched.back && !values.repo.back}>
-            <FormLabel>back</FormLabel>
-            <Input
-              type={"text"}
-              name="back"
-              value={values.repo.back}
+          <FormControl  isInvalid={touched.repos && !values.repos}>
+            <FormLabel>Repos</FormLabel>
+            <Textarea
+              name="repos"
+              value={values.repos}
               onChange={handleChange}
               onBlur={onBlur}
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
           <FormControl isRequired isInvalid={touched.technologies && !values.technologies}>
-            <FormLabel>technologies</FormLabel>
-            <Input
-              type={"text"}
+            <FormLabel>Technologies</FormLabel>
+            <Textarea
+              
               name="technologies"
               value={values.technologies}
               onChange={handleChange}

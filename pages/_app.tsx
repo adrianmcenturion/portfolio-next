@@ -15,7 +15,7 @@ const theme = extendTheme({ colors });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Box w='100%' h='100%' bgGradient='linear(to-r, #0f0c29,#302b63,#24243e)'>
+      <Box w='100%' h='100%' bgGradient={['linear(to-r, #302b63,#24243e)', 'linear(to-r, #0f0c29,#302b63,#24243e)']}>
         <Container maxW={"container.lg"} h='100%' minH='100vh'>
           <Header />
           <Component {...pageProps} />

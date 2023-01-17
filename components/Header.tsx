@@ -48,6 +48,10 @@ const navLinks = [
     title: 'Contact',
     path: '/contact'
   },
+  {
+    title: 'Admin',
+    path: '/admin'
+  },
 ];
 
 const CVButton = () => (

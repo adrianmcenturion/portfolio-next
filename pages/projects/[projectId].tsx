@@ -1,10 +1,9 @@
-import { Button, Divider, HStack, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import { Button, Divider, HStack, Image, List, ListItem, Text } from "@chakra-ui/react"
 import { useRouter } from "next/router"
 import Layout from "../../components/Layout"
 import { Project } from "."
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import { ParsedUrlQuery } from "querystring"
-import { getData } from "../../services/httpRequest"
 import { collection, getDocs } from "firebase/firestore"
 import { dbFirestore } from "../../services/firebase"
 import Link from "next/link"
@@ -35,28 +34,28 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
             <Button>
               <Link href={project.live} target='_blank'>Live</Link>
             </Button>
-            {project.repo.front && <Button>
-              <Link href={project.repo.front} target='_blank'>Repo Front</Link>
-            </Button>}
-            {project.repo.back && <Button>
-              <Link href={project.repo.back} target='_blank'>Repo Back</Link>
-            </Button>}
+            {project.repos?.map((repo) => (
+              <Button key={repo}>
+                <Link href={repo} target='_blank'>Repo</Link>
+              </Button>
+            ))}
+            
         </HStack>
-        <Image src={project.img && project?.img[0]} alt={project.title} boxSize={500}/>
+        <Image src={project.img && project?.img[0]} alt={project.title} maxW={700} objectFit='cover'/>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           About this project
         </Text>
         <Divider />
-        <Text>{project.description}</Text>
+        <Text textAlign={'center'}>{project.description}</Text>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           Technologies
         </Text>
         <Divider />
-        <UnorderedList pb={10}>
+        <List pb={10} display={'flex'} gap={8}>
           {project.technologies ? project.technologies.map((technology) => (
-            <ListItem key={technology}>{technology}</ListItem>
+            <ListItem  key={technology}>{technology}</ListItem>
           )) : null}
-        </UnorderedList>
+        </List>
     </Layout>
   )
 }

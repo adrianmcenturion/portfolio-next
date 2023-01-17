@@ -15,10 +15,7 @@ export type Project = {
   img: [string];
   live: string;
   technologies: [string];
-  repo: {
-    front: string;
-    back: string;
-  };
+  repos: [string]
 };
 
 type ProjectsProps = {
@@ -80,14 +77,6 @@ const Projects: NextPage<ProjectsProps> = (props) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  // let dev = process.env.NODE_ENV !== "production";
-  // let { DEV_URL, PROD_URL } = process.env;
-
-  // const response = getData(`${DEV_URL}/api/projects`)
-  // console.log(response)
-  // const {data} = await response;
-
-  // const getUser = async (e: React.MouseEvent<HTMLFormElement>) => {
   let test: any = [];
   try {
     const testing = await getDocs(collection(dbFirestore, "projects"));
