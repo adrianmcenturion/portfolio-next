@@ -36,7 +36,7 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
               <Image src={skill.img} alt={skill.name} boxSize={["20","24"]}/>
               {/* <ChakraNextImage src={skill.img} alt={skill.name} width={20} height={20} /> */}
             </CardBody>
-            <CardFooter p={0}>{skill.name}</CardFooter>
+            <CardFooter p={0} textColor='#FFFADE'>{skill.name}</CardFooter>
           </Card>
         )) : null}
       </Flex>

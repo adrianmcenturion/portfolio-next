@@ -25,8 +25,8 @@ const Hero = (props: Props) => {
         borderRadius="full"
       />
       <Title title="Frontend Developer" />
-      <Text fontSize={["xl", "2xl", "4xl"]}>
-        <Text as={"span"}>{text}</Text>
+      <Text fontSize={["xl", "2xl", "4xl"]} >
+        <Text as={"span"} >{text}</Text>
         <Cursor cursorColor="#4f46e5" />
       </Text>
     </Layout>
