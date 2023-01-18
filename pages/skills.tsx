@@ -1,4 +1,4 @@
-import { Flex, Card, CardBody, CardFooter, Image } from "@chakra-ui/react";
+import { Flex, Card, CardBody, CardFooter, Box, Image } from "@chakra-ui/react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import type { NextPage, GetStaticProps } from "next";
 // import Image from "next/image";
@@ -32,7 +32,9 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
         {props.technologies.length > 0 ? props.technologies.map((skill) => (
           <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'} > 
             <CardBody>
-              {/* <Image src={skill.img} alt={skill.name} width='60' height={60}/> */}
+              {/* <Box boxSize={["20","24"]} position='relative'>
+                <Image style={{objectFit: 'contain'}} loader={()=>skill.img} src={skill.img} alt={skill.name} fill priority/>
+              </Box> */}
               <Image src={skill.img} alt={skill.name} boxSize={["20","24"]}/>
               {/* <ChakraNextImage src={skill.img} alt={skill.name} width={20} height={20} /> */}
             </CardBody>

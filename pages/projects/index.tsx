@@ -1,11 +1,10 @@
-import { Card, CardBody, CardHeader, Flex, Image } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { collection, getDocs } from "firebase/firestore";
 import { GetStaticProps, NextPage } from "next";
 import Layout from "../../components/Layout";
-import NavLink from "../../components/NavLink";
 import Title from "../../components/Title";
+import ProjectCard from "../../components/UI/ProjectCard";
 import { dbFirestore } from "../../services/firebase";
-import { getData } from "../../services/httpRequest";
 
 export type Project = {
   id: string;
@@ -15,7 +14,7 @@ export type Project = {
   img: [string];
   live: string;
   technologies: [string];
-  repos: [string]
+  repos: [string];
 };
 
 type ProjectsProps = {
@@ -23,51 +22,21 @@ type ProjectsProps = {
 };
 
 const Projects: NextPage<ProjectsProps> = (props) => {
-  console.log('projects props', props.projects);
+  console.log("projects props", props.projects);
   return (
     <Layout>
       <Title title="Projects" />
-      <Flex
-        flexWrap={"wrap"}
-        alignItems="center"
-        justifyContent={"center"}
-        pb={10}
-      >
+      <Flex className="container">
         {props.projects.length > 0
           ? props.projects.map((project) => (
-              <Card
+              <ProjectCard
+                to={`/projects/${project.id}`}
+                about={project.about}
+                description={project.about}
+                img={project.img}
+                title={project.title}
                 key={project.title}
-                alignItems="center"
-                pt={0}
-                m={2}
-                size="lg"
-                bg={"transparent"}
-                border="none"
-                boxShadow={"none"}
-              >
-                <Flex
-                  as={NavLink}
-                  position={"absolute"}
-                  to={`/projects/${project.id}`}
-                  w="100%"
-                  h="100%"
-                  bg="linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, #000000 100%)"
-                  mixBlendMode={"normal"}
-                  opacity={0.6}
-                  transition={"ease-in-out"}
-                  alignItems='center'
-                  justifyContent={'center'}
-                  color='transparent'
-                  _hover={{ opacity: 1, cursor: "pointer", color: 'white', fontSize: '2xl', textTransform: 'uppercase', letterSpacing: "8px" }}
-                >Details
-                </Flex>
-                <CardHeader p={0} bg="black" w="100%" textAlign={'center'}>
-                  {project.title}
-                </CardHeader>
-                <CardBody p={0} bgImage={project.img}>
-                  <Image src={project.img[0]} alt={project.title} maxW={"sm"} />
-                </CardBody>
-              </Card>
+              />
             ))
           : null}
       </Flex>

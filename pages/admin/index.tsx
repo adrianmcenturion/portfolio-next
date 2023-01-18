@@ -9,8 +9,8 @@ const index = (props: Props) => {
     <Layout>
       <Title title="admin" />
       <HStack>
-        <Button as={Link} href='/admin/addskill' replace>Add Skills</Button>
-        <Button as={Link} href='/admin/addproject' replace>Add Project</Button>
+        <Button className="buttons" as={Link} href='/admin/addskill' replace>Add Skills</Button>
+        <Button className="link" as={Link} href='/admin/addproject' replace>Add Project</Button>
       </HStack>
     </Layout>
   )
