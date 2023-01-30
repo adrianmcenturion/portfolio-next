@@ -22,8 +22,8 @@ specifiers:
   pnpm: ^7.18.2
   react: 18.2.0
   react-dom: 18.2.0
+  react-icons: ^4.7.1
   react-simple-typewriter: ^4.0.5
-  react-social-icons: ^5.15.0
   typescript: 4.8.4
 
 dependencies:
@@ -43,8 +43,8 @@ dependencies:
   pnpm: 7.18.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.7.1_react@18.2.0
   react-simple-typewriter: 4.0.5_biqbaboplfbrettd7655fr4n2y
-  react-social-icons: 5.15.0_react@18.2.0
 
 devDependencies:
   '@types/node': 18.11.7
@@ -4085,6 +4085,14 @@ packages:
       use-sidecar: 1.1.2_i2izv7j3km4zzxbpzq2d4xtojy
     dev: false
 
+  /react-icons/4.7.1_react@18.2.0:
+    resolution: {integrity: sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -4132,15 +4140,6 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /react-social-icons/5.15.0_react@18.2.0:
-    resolution: {integrity: sha512-khfDgUiUwEBe34T6br2+mkXQg3hLVDdviVjexxZoVCsogMgxTy/m8+KlX/j6Wa7P2BPxgZ7yZ2jXw3X06pUUFQ==}
-    peerDependencies:
-      react: 15.x.x || 16.x.x || 17.x.x || 18.x.x
-    dependencies:
-      prop-types: 15.8.1
-      react: 18.2.0
     dev: false
 
   /react-style-singleton/2.2.1_i2izv7j3km4zzxbpzq2d4xtojy:

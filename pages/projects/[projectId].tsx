@@ -41,19 +41,19 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
             ))}
             
         </HStack>
-        <Image src={project.img && project?.img[0]} alt={project.title} maxW={700} objectFit='cover'/>
+        <Image src={project.img && project?.img[0]} alt={project.title}   objectFit='cover'/>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           About this project
         </Text>
-        <Divider />
-        <Text textAlign={'center'}>{project.description}</Text>
+        <Divider borderColor={'#00C89B'} />
+        <Text textAlign={'center'} textOverflow={"clip"} >{project.description}</Text>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           Technologies
         </Text>
-        <Divider />
-        <List pb={10} display={'flex'} gap={8}>
+        <Divider borderColor={'#00C89B'} />
+        <List pb={10} display={'flex'} flexWrap='wrap' alignItems={'center'} justifyContent='center' gap={8} >
           {project.technologies ? project.technologies.map((technology) => (
-            <ListItem  key={technology}>{technology}</ListItem>
+            <ListItem key={technology}>{technology}</ListItem>
           )) : null}
         </List>
     </Layout>

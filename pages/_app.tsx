@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { Box, ChakraProvider, Container, extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const colors = {
   brand: {
@@ -16,9 +17,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Box w='100%' h='100%' bgGradient={['linear(to-r, #302b63,#24243e)', 'linear(to-r, #0f0c29,#302b63,#24243e)']} textColor='#00C89B'>
-        <Container maxW={"container.lg"} h='100%' minH='100vh'>
+        <Container maxW={"container.lg"} h='100%' minH='100vh' overflow={'hidden'}>
           <Header />
           <Component {...pageProps} />
+          <Footer/>
         </Container>
       </Box>
     </ChakraProvider>

@@ -12,7 +12,7 @@ import {
   Spacer,
   Stack,
   useDisclosure,
-  LinkProps, Menu, MenuButton, MenuList, MenuItem, List
+  LinkProps, Menu, MenuButton, MenuList, MenuItem, List, Button
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -34,7 +34,7 @@ interface NavLinkProps extends LinkProps {
 const navLinks = [
   {
     title: 'About',
-    path: '/about'
+    path: '/'
   },
   {
     title: 'Skills',
@@ -78,17 +78,17 @@ const Mobile = ({ isLargerThan820 }: Props) => {
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} >
         <DrawerContent bgGradient='linear(to-bl, #302b63,#24243e)'>
-          <DrawerCloseButton />
+          <DrawerCloseButton color={'#00C89B'} />
           <DrawerBody>
             <List >
               {navLinks.map((navLink) => (
                 <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>
-                  <NavLink mr={4} to={navLink.path} activeProps={{fontWeight:'bold'}}>
+                  <NavLink mr={4} to={navLink.path} textColor='#00C89B' activeProps={{fontWeight:'bold'}}>
                       {navLink.title}
                   </NavLink>
                 </ListItem>
               ))}
-              <ListItem py={2}>
+              <ListItem py={2} textColor='#00C89B'>
                 <CVButton />
               </ListItem>
             </List>
@@ -103,13 +103,7 @@ const Header = () => {
   const [isLargerThan820] = useMediaQuery("(max-width: 820px)");
 
   return (
-    <Stack as={"nav"} direction="row" alignItems={"center"} px={10} py={6}>
-      <Stack>
-        <ChakraLink as={Link} href={"/"}>
-          LOGO
-        </ChakraLink>
-      </Stack>
-      <Spacer />
+    <Stack as={"nav"} direction="row" alignItems={"center"} justifyContent='center' px={10} py={6}>
       <Flex direction={"row"} display={isLargerThan820 ? "none" : "flex"}>
         <List
           display={"flex"}
@@ -118,7 +112,7 @@ const Header = () => {
           alignItems="center"
           textTransform={"uppercase"}
           listStyleType={"none"}
-          gap={6}
+          gap={10}
         >
           {navLinks.map((navLink) => (
                 <ListItem key={navLink.title}>
@@ -127,8 +121,8 @@ const Header = () => {
                   </NavLink>
                 </ListItem>
               ))}
-          <ListItem>
-          <CVButton />
+          <ListItem >
+              <CVButton />
           </ListItem>
         </List>
       </Flex>
