@@ -9,7 +9,7 @@ const Hero = (props: Props) => {
 
   const [text, count] = useTypewriter({
     words: [
-      '<Frontend Developer />',
+      '<FrontendDeveloper />',
     ],
     loop: true,
     delaySpeed: 800,
