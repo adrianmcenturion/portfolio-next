@@ -27,8 +27,8 @@
   content: '';
   position: absolute;
   inset: -10px 50px;
-  border-top: 4px solid #00C89B;
-  border-bottom: 4px solid #00C89B;
+  border-top: 4px solid #B83280;
+  border-bottom: 4px solid #B83280;
   z-index: -1;
   transform: skewY(15deg);
   transition: 0.5s ease-in-out;
@@ -44,8 +44,8 @@
   content: '';
   position: absolute;
   inset: 60px -10px;
-  border-left: 4px solid #00C89B;
-  border-right: 4px solid #00C89B;
+  border-left: 4px solid #B83280;
+  border-right: 4px solid #B83280;
   z-index: -1;
   transform: skew(15deg);
   transition: 0.5s ease-in-out;
@@ -149,3 +149,17 @@
   background: #302b63;
   color: #00C89B;
 }
+
+.navlinks {
+   display:inline-block;
+   margin:0;
+   text-transform:uppercase;
+   }
+.navlinks:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px #B83280;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.navlinks:hover:after { transform: scaleX(1); }

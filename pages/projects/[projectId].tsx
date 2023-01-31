@@ -1,4 +1,4 @@
-import { Button, Divider, HStack, Image, List, ListItem, Text } from "@chakra-ui/react"
+import { Box, Button, Divider, HStack, List, ListItem, Text } from "@chakra-ui/react"
 import { useRouter } from "next/router"
 import Layout from "../../components/Layout"
 import { Project } from "."
@@ -7,6 +7,7 @@ import { ParsedUrlQuery } from "querystring"
 import { collection, getDocs } from "firebase/firestore"
 import { dbFirestore } from "../../services/firebase"
 import Link from "next/link"
+import Image from "next/image"
 
 type Projects = {
   project: Project
@@ -41,16 +42,18 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
             ))}
             
         </HStack>
-        <Image src={project.img && project?.img[0]} alt={project.title}   objectFit='cover'/>
+        <Box position={'relative'} w={[300, 700]} h={[150, 350]}>
+          <Image src={project.img && project?.img[0]} alt={project.title} fill/>
+        </Box>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           About this project
         </Text>
-        <Divider borderColor={'#00C89B'} />
+        <Divider borderColor='pink.600' />
         <Text textAlign={'center'} textOverflow={"clip"} >{project.description}</Text>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           Technologies
         </Text>
-        <Divider borderColor={'#00C89B'} />
+        <Divider borderColor='pink.600' />
         <List pb={10} display={'flex'} flexWrap='wrap' alignItems={'center'} justifyContent='center' gap={8} >
           {project.technologies ? project.technologies.map((technology) => (
             <ListItem key={technology}>{technology}</ListItem>

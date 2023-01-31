@@ -1,4 +1,5 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+import { Flex, Box, Text } from "@chakra-ui/react";
+import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Layout from "./Layout";
 import Title from "./Title";
@@ -17,17 +18,16 @@ const Hero = (props: Props) => {
 
   return (
     <Layout>
-      <Image
-        src="https://bit.ly/dan-abramov"
-        alt="yo"
-        boxSize={400}
-        borderRadius="full"
-      />
-      {/* <Title title="Frontend Developer" /> */}
-      {/* <Text fontSize={'3xl'} textTransform='uppercase'>Frontend Developer</Text> */}
+      <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
+        <Image
+          src="https://bit.ly/dan-abramov"
+          alt="yo"
+          fill
+        />
+      </Box>
       <Title title="Adrián Centurion" />
       <Text fontSize={["xl", "2xl", "4xl"]} >
-        <Text as={"span"} >{text}</Text>
+        <Text as={"span"} textColor='pink.600'>{text}</Text>
         <Cursor cursorColor="#4f46e5" />
       </Text>
       <Text  textColor='#FFFADE' textAlign={'center'} mx='auto' mt={6}>

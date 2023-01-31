@@ -13,7 +13,7 @@ interface NavLinkProps extends LinkProps {
 const NavLink = ({ to, activeProps, children, _hover, ...props }: NavLinkProps) => {
   const router = useRouter()
   const isActive = router.pathname === to
-  const color = useColorModeValue('#CCBEFF', '#4f46e5')
+  const color = useColorModeValue('pink.600', '#4f46e5')
 
   if (isActive) {
     return (
@@ -22,8 +22,7 @@ const NavLink = ({ to, activeProps, children, _hover, ...props }: NavLinkProps) 
           fontWeight='bold'
           {...props}
           {...activeProps}
-          _hover={{ color: 'selected' }}
-        
+          _hover={{ color: '#00C89B', fontWeight: 'bold' }}
           color={color}>
           {children}
         </ChakraLink>
@@ -33,7 +32,7 @@ const NavLink = ({ to, activeProps, children, _hover, ...props }: NavLinkProps) 
 
   return (
     <Link href={to} legacyBehavior replace>
-      <ChakraLink {...props} _hover={{ color: '#CCBEFF' }}>
+      <ChakraLink {...props} _hover={{ color: '#00C89B' }}>
         {children}
       </ChakraLink>
     </Link>

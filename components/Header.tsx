@@ -12,9 +12,10 @@ import {
   Spacer,
   Stack,
   useDisclosure,
-  LinkProps, Menu, MenuButton, MenuList, MenuItem, List, Button
+  LinkProps, Menu, MenuButton, MenuList, MenuItem, List, Button, transform
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import NavLink from "./NavLink";
 
@@ -52,17 +53,11 @@ const navLinks = [
     title: 'Admin',
     path: '/admin'
   },
+  {
+    title: 'CV',
+    path: '#'
+  },
 ];
-
-const CVButton = () => (
-  <Menu isLazy >
-    <MenuButton _hover={{ color: '#4f46e5' }}>CV</MenuButton>
-    <MenuList bgGradient='linear(to-r, #302b63,#24243e)'>
-      <MenuItem bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>ENG</MenuItem>
-      <MenuItem bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>ESP</MenuItem>
-    </MenuList>
-  </Menu>
-)
 
 const Mobile = ({ isLargerThan820 }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -74,7 +69,7 @@ const Mobile = ({ isLargerThan820 }: Props) => {
         aria-label="hamburger icon"
         as={HamburgerIcon}
         onClick={onOpen}
-        bgGradient='linear(to-r, #302b63,#24243e)'
+        backgroundColor='transparent'
       />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose} >
         <DrawerContent bgGradient='linear(to-bl, #302b63,#24243e)'>
@@ -82,15 +77,12 @@ const Mobile = ({ isLargerThan820 }: Props) => {
           <DrawerBody>
             <List >
               {navLinks.map((navLink) => (
-                <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'} _hover={{bg: 'rgba(255,255,255, 5%)'}}>
-                  <NavLink mr={4} to={navLink.path} textColor='#00C89B' activeProps={{fontWeight:'bold'}}>
+                <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'}>
+                  <NavLink mr={4} to={navLink.path} textColor='#00C89B' activeProps={{fontWeight:'bold', textColor: 'pink.600'}} _focus={{textColor: 'pink.600'}}>
                       {navLink.title}
                   </NavLink>
                 </ListItem>
               ))}
-              <ListItem py={2} textColor='#00C89B'>
-                <CVButton />
-              </ListItem>
             </List>
           </DrawerBody>
         </DrawerContent>
@@ -101,29 +93,28 @@ const Mobile = ({ isLargerThan820 }: Props) => {
 
 const Header = () => {
   const [isLargerThan820] = useMediaQuery("(max-width: 820px)");
+  const router = useRouter()
+  const isActive = router.pathname
 
   return (
-    <Stack as={"nav"} direction="row" alignItems={"center"} justifyContent='center' px={10} py={6}>
+    <Stack as={"nav"} direction="row" alignItems={"center"} justifyContent={isLargerThan820 ? 'flex-end' : 'center'} px={10} py={6}>
       <Flex direction={"row"} display={isLargerThan820 ? "none" : "flex"}>
         <List
           display={"flex"}
           w="100%"
           flexDirection={"row"}
-          alignItems="center"
+          alignItems={"center"}
           textTransform={"uppercase"}
           listStyleType={"none"}
           gap={10}
         >
           {navLinks.map((navLink) => (
                 <ListItem key={navLink.title}>
-                  <NavLink mr={4} to={navLink.path} activeProps={{fontWeight:'semibold'}} >
+                  <NavLink to={navLink.path} className='navlinks'>
                       {navLink.title}
                   </NavLink>
                 </ListItem>
               ))}
-          <ListItem >
-              <CVButton />
-          </ListItem>
         </List>
       </Flex>
       <Mobile isLargerThan820={isLargerThan820} />

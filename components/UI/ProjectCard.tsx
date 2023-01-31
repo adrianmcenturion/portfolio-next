@@ -1,4 +1,5 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import Image from "next/image";
 import Link from "next/link";
 import NavLink from "../NavLink";
 
@@ -15,7 +16,9 @@ const ProjectCard = ({to, title, description, about, img}: Project) => {
       <Flex className="content">
         <Flex className="icon">
           {/* ICON */}
-          <Image src={img[0]} alt={title} w={'100%'}/>
+          <Box position={'relative'} w={'100%'} h='100%'>
+            <Image src={img[0]} alt={title} fill/>
+          </Box>
         </Flex>
         <Box className="text">
           <h3>{title}</h3>
