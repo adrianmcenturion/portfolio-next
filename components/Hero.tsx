@@ -20,9 +20,11 @@ const Hero = (props: Props) => {
     <Layout>
       <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
         <Image
+          style={{objectFit: 'contain'}}
           src="https://bit.ly/dan-abramov"
           alt="yo"
           fill
+          sizes="(max-width: 768px) 25vw, (max-width: 1440px) 10vw"
         />
       </Box>
       <Title title="Adrián Centurion" />

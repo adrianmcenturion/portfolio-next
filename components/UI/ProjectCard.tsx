@@ -17,7 +17,7 @@ const ProjectCard = ({to, title, description, about, img}: Project) => {
         <Flex className="icon">
           {/* ICON */}
           <Box position={'relative'} w={'100%'} h='100%'>
-            <Image src={img[0]} alt={title} fill/>
+            <Image style={{objectFit: 'cover'}} src={img[0]} alt={title} fill sizes="(max-width: 768px) 50vw, (max-width: 1440px) 10vw"/>
           </Box>
         </Flex>
         <Box className="text">

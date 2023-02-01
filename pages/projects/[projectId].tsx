@@ -43,7 +43,7 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
             
         </HStack>
         <Box position={'relative'} w={[300, 700]} h={[150, 350]}>
-          <Image src={project.img && project?.img[0]} alt={project.title} fill/>
+          <Image style={{objectFit: 'contain'}} src={project.img && project?.img[0]} alt={project.title} fill/>
         </Box>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           About this project

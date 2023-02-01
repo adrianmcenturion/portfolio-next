@@ -32,9 +32,8 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
         {props.technologies.length > 0 ? props.technologies.map((skill) => (
           <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'} > 
             <CardBody>
-              <Box position={'relative'} boxSize={["20","24"]}>
-              <Image src={skill.img} alt={skill.name} fill sizes="(max-width: 768px) 25vw,
-              (max-width: 1440px) 10vw"/>
+              <Box position={'relative'} boxSize={["20","24"]} objectFit='contain'>
+              <Image style={{objectFit: 'contain'}} src={skill.img} alt={skill.name} fill sizes="(max-width: 768px) 50vw, (max-width: 1440px) 70vw"/>
               </Box>
             </CardBody>
             <CardFooter p={0} textColor='#FFFADE'>{skill.name}</CardFooter>
