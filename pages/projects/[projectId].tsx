@@ -48,12 +48,12 @@ const ProjectDetails: NextPage<Projects> = ({project}) => {
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           About this project
         </Text>
-        <Divider borderColor='pink.600' />
+        <Divider borderColor='#00C89B' />
         <Text textAlign={'center'} textOverflow={"clip"} >{project.description}</Text>
         <Text fontSize={"2xl"} textTransform={"uppercase"} letterSpacing={"6px"} textAlign='start'>
           Technologies
         </Text>
-        <Divider borderColor='pink.600' />
+        <Divider borderColor='#00C89B' />
         <List pb={10} display={'flex'} flexWrap='wrap' alignItems={'center'} justifyContent='center' gap={8} >
           {project.technologies ? project.technologies.map((technology) => (
             <ListItem key={technology}>{technology}</ListItem>

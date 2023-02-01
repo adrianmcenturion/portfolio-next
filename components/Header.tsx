@@ -55,7 +55,7 @@ const navLinks = [
   },
   {
     title: 'CV',
-    path: '#'
+    path: '/AdrianCenturion-CV-ENG.pdf'
   },
 ];
 
@@ -78,9 +78,15 @@ const Mobile = ({ isLargerThan820 }: Props) => {
             <List >
               {navLinks.map((navLink) => (
                 <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'}>
+                  {navLink.title === 'CV' ? 
+                  <ChakraLink as={Link} textColor='#00C89B' textDecoration={'none'} _focus={{textColor: 'pink.600', fontWeight:'bold', textDecoration: 'none'}} href={navLink.path} download target={'_blank'} rel="noopener noreferrer">
+                  {navLink.title}
+                </ChakraLink>
+                  :
                   <NavLink mr={4} to={navLink.path} textColor='#00C89B' activeProps={{fontWeight:'bold', textColor: 'pink.600'}} _focus={{textColor: 'pink.600'}}>
-                      {navLink.title}
-                  </NavLink>
+                  {navLink.title}
+              </NavLink> 
+                }
                 </ListItem>
               ))}
             </List>
@@ -110,9 +116,14 @@ const Header = () => {
         >
           {navLinks.map((navLink) => (
                 <ListItem key={navLink.title}>
+                  {navLink.title === 'CV' ?
+                  <Link href={navLink.path} download target={'_blank'} rel="noopener noreferrer" className='navlinks'>
+                      {navLink.title}
+                  </Link>
+                  :
                   <NavLink to={navLink.path} className='navlinks'>
                       {navLink.title}
-                  </NavLink>
+                  </NavLink>}
                 </ListItem>
               ))}
         </List>
