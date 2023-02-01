@@ -33,7 +33,8 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
           <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'} > 
             <CardBody>
               <Box position={'relative'} boxSize={["20","24"]}>
-              <Image src={skill.img} alt={skill.name} fill />
+              <Image src={skill.img} alt={skill.name} fill sizes="(max-width: 768px) 25vw,
+              (max-width: 1440px) 10vw"/>
               </Box>
             </CardBody>
             <CardFooter p={0} textColor='#FFFADE'>{skill.name}</CardFooter>
