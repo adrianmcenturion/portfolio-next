@@ -19,7 +19,6 @@ type TechnologiesProps = {
 }
 
 const Skills: NextPage<TechnologiesProps> = (props) => {
-  console.log(props)
   return (
     <Layout>
       <Title title="My Skills" />

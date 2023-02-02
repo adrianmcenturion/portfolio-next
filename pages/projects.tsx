@@ -25,7 +25,6 @@ type ProjectsProps = {
 };
 
 const Projects: NextPage<ProjectsProps> = (props) => {
-  console.log("projects props", props.projects);
   return (
     <Layout>
       <Title title="My Projects" />
