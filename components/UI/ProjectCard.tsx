@@ -9,6 +9,7 @@ import {
   Spacer,
   Stack,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -133,11 +134,12 @@ const ProjectCard = ({
             <Flex flexDirection={"row"} flexWrap="wrap" mt={4} w="100%" gap={2}>
               {technologies
                 ? technologies.map((technology) => (
+                  <Tooltip key={technology.name} label={technology.name} bg='transparent' placement="top" textColor='#FFFADE'>
                     <Box
                       position={"relative"}
                       w={6}
                       h={6}
-                      key={technology.name}
+                      
                     >
                       {technology.img !== "" ? (
                         <Image
@@ -149,6 +151,7 @@ const ProjectCard = ({
                         />
                       ) : null}
                     </Box>
+                    </Tooltip>
                   ))
                 : null}
             </Flex>
