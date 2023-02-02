@@ -19,9 +19,10 @@ type TechnologiesProps = {
 }
 
 const Skills: NextPage<TechnologiesProps> = (props) => {
+  console.log(props)
   return (
     <Layout>
-      <Title title="Skills" />
+      <Title title="My Skills" />
       <Flex
         flexWrap={"wrap"}
         gap={4}
@@ -32,7 +33,7 @@ const Skills: NextPage<TechnologiesProps> = (props) => {
         {props.technologies.length > 0 ? props.technologies.map((skill) => (
           <Card key={skill.name} alignItems='center' size='lg' bg={'transparent'} border='none' boxShadow={'none'} > 
             <CardBody>
-              <Box position={'relative'} boxSize={["20","24"]} objectFit='contain'>
+              <Box position={'relative'} boxSize={["16","20"]} objectFit='contain'>
               <Image style={{objectFit: 'contain'}} src={skill.img} alt={skill.name} fill sizes="(max-width: 768px) 50vw, (max-width: 1440px) 70vw"/>
               </Box>
             </CardBody>

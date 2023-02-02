@@ -50,12 +50,12 @@ const navLinks = [
     path: '/contact'
   },
   {
-    title: 'Admin',
-    path: '/admin'
+    title: 'Resume',
+    path: '/AdrianCenturion-CV-ENG.pdf'
   },
   {
-    title: 'CV',
-    path: '/AdrianCenturion-CV-ENG.pdf'
+    title: 'Admin',
+    path: '/admin'
   },
 ];
 
@@ -78,7 +78,7 @@ const Mobile = ({ isLargerThan820 }: Props) => {
             <List >
               {navLinks.map((navLink) => (
                 <ListItem key={navLink.title} py={2} textTransform='uppercase' bg={'transparent'}>
-                  {navLink.title === 'CV' ? 
+                  {navLink.title === 'Resume' ? 
                   <ChakraLink as={Link} textColor='#00C89B' textDecoration={'none'} _focus={{textColor: 'pink.600', fontWeight:'bold', textDecoration: 'none'}} href={navLink.path} download target={'_blank'} rel="noopener noreferrer">
                   {navLink.title}
                 </ChakraLink>
@@ -116,7 +116,7 @@ const Header = () => {
         >
           {navLinks.map((navLink) => (
                 <ListItem key={navLink.title}>
-                  {navLink.title === 'CV' ?
+                  {navLink.title === 'Resume' ?
                   <Link href={navLink.path} download target={'_blank'} rel="noopener noreferrer" className='navlinks'>
                       {navLink.title}
                   </Link>

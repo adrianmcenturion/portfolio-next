@@ -30,10 +30,10 @@ const Hero = (props: Props) => {
       <Title title="Adrián Centurion" />
       <Text fontSize={["xl", "2xl", "4xl"]} >
         <Text as={"span"} textColor='pink.600'>{text}</Text>
-        <Cursor cursorColor="#4f46e5" />
+        <Cursor cursorColor="#B83280" />
       </Text>
-      <Text  textColor='#FFFADE' textAlign={'center'} mx='auto' mt={6}>
-        He trabajado en varios proyectos personales utilizando React/Next para la parte del frontend, y también he utilizado Node y Express para hacer algunos backends. Aunque no tengo experiencia profesional, llevo más de un año trabajando con estas tecnologías y me encanta seguir aprendiendo y mejorando. Si estás buscando un desarrollador front-end dedicado y apasionado, no dudes en ponerte en contacto conmigo.
+      <Text  textColor='#FFFADE' textAlign={'center'} mx='auto' mt={6} maxW={['80%', '60%']}>
+      I have worked on several personal projects using React/Next for the front-end and have also used Node and Express for some backends. Although I do not have professional experience, I have been working with these technologies for over a year and I love continuing to learn and improve. If you&apos;re looking for a dedicated and passionate front-end developer, feel free to contact me.
       </Text>
     </Layout>
   );

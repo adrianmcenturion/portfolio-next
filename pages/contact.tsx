@@ -67,10 +67,10 @@ const Contact = () => {
 
   return (
     <Layout>
-      <Title title="Contact" />
-      <form onSubmit={onSubmit}>
-        <VStack gap={6}>
-          <FormControl isRequired isInvalid={touched.name && !values.name}>
+      <Title title="Contact Me" />
+      <form style={{width: '100%'}} onSubmit={onSubmit}>
+        <VStack gap={6} w='100%'>
+          <FormControl isRequired isInvalid={touched.name && !values.name} className='form-control'>
             <FormLabel>Name</FormLabel>
             <Input
               type="text"
@@ -78,10 +78,14 @@ const Contact = () => {
               value={values.name}
               onChange={handleChange}
               onBlur={onBlur}
+              borderColor='#00C89B'
+              focusBorderColor='pink.600'
+              transition='0.5s ease-in-out'
+              _hover={{borderColor: 'pink.600'}}
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
-          <FormControl isRequired isInvalid={touched.email && !values.email}>
+          <FormControl isRequired isInvalid={touched.email && !values.email} className='form-control'>
             <FormLabel>Email</FormLabel>
             <Input
               type={"email"}
@@ -89,12 +93,17 @@ const Contact = () => {
               value={values.email}
               onChange={handleChange}
               onBlur={onBlur}
+              borderColor='#00C89B'
+              focusBorderColor='pink.600'
+              transition='0.5s ease-in-out'
+              _hover={{borderColor: 'pink.600'}}
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
           <FormControl
             isRequired
             isInvalid={touched.message && !values.message}
+            className='form-control'
           >
             <FormLabel>Message:</FormLabel>
             <Textarea
@@ -103,6 +112,10 @@ const Contact = () => {
               onChange={handleChange}
               onBlur={onBlur}
               rows={4}
+              borderColor='#00C89B'
+              focusBorderColor='pink.600'
+              transition='0.5s ease-in-out'
+              _hover={{borderColor: 'pink.600'}}
             />
             <FormErrorMessage>Required</FormErrorMessage>
           </FormControl>
@@ -110,6 +123,11 @@ const Contact = () => {
             type="submit"
             disabled={!values.name || !values.email || !values.message}
             isLoading={isLoading}
+            color={'#00C89B'}
+              colorScheme='pink'
+              bg='pink.600'
+              transition={'0.4s ease-in-out'}
+                _hover={{bg: '#00C89B', color: 'pink.600'}}
           >
             Send
           </Button>

@@ -7,13 +7,12 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 60px 0;
-  gap: 160px;
+  gap: 120px;
   z-index: 10;
 }
 
 .container .box {
   position: relative;
-  width: 300px;
   height: 350px;
   background: #302b63;
   display: flex;
@@ -97,8 +96,7 @@
 }
 
 .container .box .content .text h3 {
-  font-size: 1.5em;
-  color: #fff;
+  color: #FFFADE;
   font-weight: 500;
   transition: 0.5s ease-in-out;
 }
@@ -108,7 +106,7 @@
 }
 
 .container .box .content .text p {
-  color: #999;
+  color: #FFFADE;
   transition: 0.5s ease-in-out;
 }
 
@@ -163,3 +161,7 @@
   transition: transform 250ms ease-in-out;
 }
 .navlinks:hover:after { transform: scaleX(1); }
+
+.form-control span {
+  color: #B83280; 
+}
