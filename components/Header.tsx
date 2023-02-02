@@ -53,10 +53,6 @@ const navLinks = [
     title: 'Resume',
     path: '/AdrianCenturion-CV-ENG.pdf'
   },
-  {
-    title: 'Admin',
-    path: '/admin'
-  },
 ];
 
 const Mobile = ({ isLargerThan820 }: Props) => {
