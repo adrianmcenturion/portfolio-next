@@ -3,7 +3,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
   Flex,
   Heading,
   HStack,
@@ -32,10 +31,8 @@ export type Project = {
 };
 
 const ProjectCard = ({
-  to,
   title,
   description,
-  about,
   img,
   technologies,
   live,
@@ -130,11 +127,9 @@ const ProjectCard = ({
         >
           <CardBody display={"flex"} flexDirection="column" justifyContent={'space-between'} p={0}>
             <Heading size="md">{title}</Heading>
-            {/* <Spacer /> */}
             <Text textColor={"#FFFADE"} lineHeight={"1"} mt={2}>
               {description}
             </Text>
-            {/* <Spacer /> */}
             <Flex flexDirection={"row"} flexWrap="wrap" mt={4} w="100%" gap={2}>
               {technologies
                 ? technologies.map((technology) => (

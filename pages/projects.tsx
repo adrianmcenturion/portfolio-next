@@ -1,5 +1,5 @@
 import { Flex } from "@chakra-ui/react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { GetStaticProps, NextPage } from "next";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
@@ -18,6 +18,7 @@ export type Project = {
   }]
   live: string;
   repos: string;
+  createdAt: Date;
 };
 
 type ProjectsProps = {
@@ -51,19 +52,30 @@ const Projects: NextPage<ProjectsProps> = (props) => {
 export default Projects;
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
-  let test: any = [];
+  let projects: any = [];
   try {
-    const testing = await getDocs(collection(dbFirestore, "projects"));
-    testing.forEach((doc) => {
-      test.push({ ...doc.data(), id: doc.id });
-    });
+    const q = query(collection(dbFirestore, 'projects'), orderBy('createdAt', 'desc'))
+    const querySnapShot = await getDocs(q)
+    console.log(querySnapShot.docs)
+    projects = querySnapShot.docs.map((doc) => ({
+      id: doc.id,
+      title: doc.data().title,
+      description: doc.data().description,
+      about: doc.data().about,
+      img: doc.data().img,
+      technologies: doc.data().technologies,
+      live: doc.data().live,
+      repos: doc.data().repos,
+      createdAt: doc.data().createdAt?.toDate().getTime()
+
+    }))
   } catch (error) {
     throw new Error();
   }
 
   return {
     props: {
-      projects: test,
+      projects: projects,
     },
   };
 };

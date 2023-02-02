@@ -15,5 +15,3 @@ export const ChakraNextImage = chakra(NextImage, {
       "loader ",
     ].includes(prop),
 });
-
-{/* <Image src={imgSrc} alt="descriptive" width="20px" height="20px" /> */}

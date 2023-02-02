@@ -12,7 +12,7 @@ import {
   Spacer,
   Stack,
   useDisclosure,
-  LinkProps, Menu, MenuButton, MenuList, MenuItem, List, Button, transform
+  LinkProps, List
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";

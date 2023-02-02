@@ -4,7 +4,6 @@ import type { NextPage, GetStaticProps } from "next";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
-import { ChakraNextImage } from "../components/UI/ChakraNextImg";
 import { dbFirestore } from "../services/firebase";
 
 type Technology = {

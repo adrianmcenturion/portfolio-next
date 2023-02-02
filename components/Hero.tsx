@@ -1,4 +1,4 @@
-import { Flex, Box, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Layout from "./Layout";
@@ -20,10 +20,11 @@ const Hero = (props: Props) => {
     <Layout>
       <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
         <Image
-          style={{objectFit: 'contain'}}
-          src="https://bit.ly/dan-abramov"
+          style={{objectFit: 'cover'}}
+          src="https://firebasestorage.googleapis.com/v0/b/db-portfolio-fb0e3.appspot.com/o/images%2Fme.jpeg?alt=media&token=6eac577f-c90e-4757-b507-62a1cdd77e37"
           alt="yo"
           fill
+          priority
           sizes="(max-width: 768px) 25vw, (max-width: 1440px) 10vw"
         />
       </Box>
