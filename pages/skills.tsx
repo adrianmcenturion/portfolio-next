@@ -1,6 +1,7 @@
 import { Flex, Card, CardBody, CardFooter, Box,  } from "@chakra-ui/react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import type { NextPage, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
@@ -19,7 +20,13 @@ type TechnologiesProps = {
 
 const Skills: NextPage<TechnologiesProps> = (props) => {
   return (
+    
     <Layout>
+      <Head>
+        <title>Adrián Centurion - Skills</title>
+        <meta name="description" content="Adrián Centurion portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Title title="My Skills" />
       <Flex
         flexWrap={"wrap"}

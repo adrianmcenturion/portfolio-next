@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import ProjectCard from "../components/UI/ProjectCard";
@@ -28,6 +29,11 @@ type ProjectsProps = {
 const Projects: NextPage<ProjectsProps> = (props) => {
   return (
     <Layout>
+      <Head>
+        <title>Adrián Centurion - Projects</title>
+        <meta name="description" content="Adrián Centurion portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Title title="My Projects" />
       <Flex alignItems={'stretch'} justifyContent='center' flexWrap={'wrap'} gap={10}>
         {props.projects.length > 0

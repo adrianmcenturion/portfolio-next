@@ -7,6 +7,7 @@ import {
   Textarea,
   VStack,
 } from "@chakra-ui/react";
+import Head from "next/head";
 import {
   useState,
 } from "react";
@@ -67,6 +68,11 @@ const Contact = () => {
 
   return (
     <Layout>
+      <Head>
+        <title>Adrián Centurion - Contact</title>
+        <meta name="description" content="Adrián Centurion portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Title title="Contact Me" />
       <form style={{width: '100%'}} onSubmit={onSubmit}>
         <VStack gap={6} w='100%'>
