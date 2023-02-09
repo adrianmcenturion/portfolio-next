@@ -1,14 +1,11 @@
-import { Box, Text } from "@chakra-ui/react";
-import Image from "next/image";
+import { Text } from "@chakra-ui/react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Layout from "./Layout";
 import Title from "./Title";
 
-type Props = {};
-const Hero = (props: Props) => {
+const Hero = () => {
 
-
-  const [text, count] = useTypewriter({
+  const [text] = useTypewriter({
     words: [
       "Hi! I'm Adrián Centurion",
       '<FrontendDeveloper />',

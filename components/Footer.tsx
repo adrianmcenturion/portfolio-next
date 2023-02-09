@@ -2,8 +2,7 @@ import { Divider, Flex, HStack, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { FaLinkedin, FaGithubSquare, FaEnvelope } from "react-icons/fa";
 
-type Props = {};
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <VStack py={10}>
       <Divider borderColor={'pink.600'} border='2px' my={4}/>

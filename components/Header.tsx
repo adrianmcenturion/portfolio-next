@@ -9,14 +9,11 @@ import {
   IconButton,
   Link as ChakraLink,
   ListItem,
-  Spacer,
   Stack,
   useDisclosure,
-  LinkProps, List
+  List
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
 import NavLink from "./NavLink";
 
 
@@ -24,13 +21,6 @@ type Props = {
   fieldName?: string;
   isLargerThan820: boolean;
 };
-
-interface NavLinkProps extends LinkProps {
-  children?: string | React.ReactNode
-  to: string
-  activeProps?: LinkProps
-  _hover?: LinkProps
-}
 
 const navLinks = [
   {
@@ -95,8 +85,6 @@ const Mobile = ({ isLargerThan820 }: Props) => {
 
 const Header = () => {
   const [isLargerThan820] = useMediaQuery("(max-width: 820px)");
-  const router = useRouter()
-  const isActive = router.pathname
 
   return (
     <Stack as={"nav"} direction="row" alignItems={"center"} justifyContent={isLargerThan820 ? 'flex-end' : 'center'} px={10} py={6}>
