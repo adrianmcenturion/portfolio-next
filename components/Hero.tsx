@@ -10,6 +10,7 @@ const Hero = (props: Props) => {
 
   const [text, count] = useTypewriter({
     words: [
+      "Hi! I'm Adrián Centurion",
       '<FrontendDeveloper />',
     ],
     loop: true,
@@ -18,7 +19,7 @@ const Hero = (props: Props) => {
 
   return (
     <Layout>
-      <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
+      {/* <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
         <Image
           style={{objectFit: 'cover'}}
           src="https://firebasestorage.googleapis.com/v0/b/db-portfolio-fb0e3.appspot.com/o/images%2Fme.jpeg?alt=media&token=6eac577f-c90e-4757-b507-62a1cdd77e37"
@@ -27,9 +28,9 @@ const Hero = (props: Props) => {
           priority
           sizes="(max-width: 768px) 25vw, (max-width: 1440px) 10vw"
         />
-      </Box>
-      <Title title="Adrián Centurion" />
-      <Text fontSize={["xl", "2xl", "4xl"]} >
+      </Box> */}
+      <Title title="Welcome" />
+      <Text fontSize={["xl", "2xl", "5xl"]} >
         <Text as={"span"} textColor='pink.600'>{text}</Text>
         <Cursor cursorColor="#B83280" />
       </Text>

@@ -126,9 +126,9 @@ const ProjectCard = ({
           textColor={"#00C89B"}
           p={4}
         >
-          <CardBody display={"flex"} flexDirection="column" justifyContent={'space-between'} p={0}>
+          <CardBody display={"flex"} flexDirection="column" w='full' justifyContent={'space-between'} p={0}>
             <Heading size="md">{title}</Heading>
-            <Text textColor={"#FFFADE"} lineHeight={"1"} mt={2}>
+            <Text textColor={"#FFFADE"}  lineHeight={"1"} mt={2}>
               {description}
             </Text>
             <Flex flexDirection={"row"} flexWrap="wrap" mt={4} w="100%" gap={2}>
