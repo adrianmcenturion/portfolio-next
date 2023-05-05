@@ -1,7 +1,8 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Layout from "./Layout";
 import Title from "./Title";
+import Image from "next/image";
 
 const Hero = () => {
 
@@ -16,16 +17,16 @@ const Hero = () => {
 
   return (
     <Layout>
-      {/* <Box position={'relative'} boxSize={[200, 200, 300]} borderRadius="full" overflow={'hidden'}>
+      <Box position={'relative'} boxSize={[200, 200, 350]} borderRadius="full" overflow={'hidden'}>
         <Image
-          style={{objectFit: 'cover'}}
-          src="https://firebasestorage.googleapis.com/v0/b/db-portfolio-fb0e3.appspot.com/o/images%2Fme.jpeg?alt=media&token=6eac577f-c90e-4757-b507-62a1cdd77e37"
+          style={{objectFit: 'cover', objectPosition: 'center'}}
+          src="https://firebasestorage.googleapis.com/v0/b/db-portfolio-fb0e3.appspot.com/o/images%2Fme2.avif?alt=media&token=e63a566b-8ee6-4279-b449-f05676ad2155"
           alt="yo"
           fill
           priority
           sizes="(max-width: 768px) 25vw, (max-width: 1440px) 10vw"
         />
-      </Box> */}
+      </Box>
       <Title title="Welcome" />
       <Text fontSize={["xl", "2xl", "5xl"]} >
         <Text as={"span"} textColor='pink.600'>{text}</Text>
